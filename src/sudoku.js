@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
-function block_is_valid(board, block) {
-    let count = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+export function blockIsValid (board, block) {
+    const count = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     board[block].forEach(b => {
         if (b !== 0) {
             count[b] += 1
@@ -17,8 +16,9 @@ function block_is_valid(board, block) {
 
     return isValid
 }
-function col_is_valid(board, col) {
-    let block = Math.floor(col / 3)
+
+export function colIsValid (board, col) {
+    const block = Math.floor(col / 3)
 
     let line = 0
 
@@ -30,7 +30,7 @@ function col_is_valid(board, col) {
         line = col
     }
 
-    let count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    const count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     let cell = 0
 
     for (let i = block; i <= block + 6; i += 3) {
@@ -47,38 +47,37 @@ function col_is_valid(board, col) {
     count.forEach(e => {
         if (e === 0 || e > 1) {
             valid = false
-            return
         }
     })
 
     return valid
 }
 
-function row_is_valid(board, row) {
-    let block = 3 * Math.floor(row / 3)
+export function rowIsValid (board, row) {
+    const block = 3 * Math.floor(row / 3)
     let line = 0
 
     switch (row) {
-        case 0:
-        case 3:
-        case 6:
-            line = 0
-            break
-        case 1:
-        case 4:
-        case 7:
-            line = 3
-            break
-        case 2:
-        case 5:
-        case 8:
-            line = 6
-            break
-        default:
-            break
+    case 0:
+    case 3:
+    case 6:
+        line = 0
+        break
+    case 1:
+    case 4:
+    case 7:
+        line = 3
+        break
+    case 2:
+    case 5:
+    case 8:
+        line = 6
+        break
+    default:
+        break
     }
 
-    let count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    const count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     let cell = 0
 
     for (let i = block; i < block + 3; i++) {
@@ -93,10 +92,8 @@ function row_is_valid(board, row) {
     let valid = true
     count[0] = null
     count.forEach(e => {
-        console.log(e)
         if (e === 0 || e > 1) {
             valid = false
-            return
         }
     })
 

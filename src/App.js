@@ -1,12 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 
 import Board from './components/Board.js'
 
+const array =
+
 function App() {
     return (
         <div className="App">
-            <Board />
+            <Board array={array} />
         </div>
     );
 }
