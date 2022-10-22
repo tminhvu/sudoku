@@ -2,31 +2,32 @@ import './styles/Block.scss'
 
 const Block = (props) => {
     let cell_id = 0
-    let readOnly, defaultValue, placeholder, color
+    let readOnly, defaultValue, placeholder, color, value
 
     const inputs = props.array.map((e) => {
         if (e === 0 || e === '.') {
             readOnly = false
-            defaultValue = ''
-            placeholder = ''
             color = 'blue'
+            placeholder=''
         } else {
-            placeholder = e
             defaultValue = e
+            value = e
+            placeholder=e
             readOnly = true
-            color = 'NONE'
+            color = ''
         }
         let key = props.block_id + ' ' + cell_id++
 
         return <input
-            placeholder={placeholder}
+            //value={value}
             readOnly={readOnly}
-            defaultValue={defaultValue}
+            //defaultValue={defaultValue}
+            placeholder={placeholder}
             key={key}
-            style={color = { color }}
             onChange={(e) => {
                 props.cellChange(key, e.target.value)
             }}
+            style={color = { color }}
         ></input>
     })
 
